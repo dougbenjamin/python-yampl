@@ -24,7 +24,7 @@ cdef extern from "ISocket.h" namespace "yampl":
 	cdef cppclass ISocket:
 		void send(void *, size_t) except +
 		size_t recv(void *&buffer) except +
-		ssize_t tryRecv(void *&buffer,long timeout) except +
+		ssize_t tryRecv(void *&buffer, long timeout) except +
 
 cdef extern from "SocketFactory.h" namespace "yampl":
 	cdef cppclass SocketFactory:
