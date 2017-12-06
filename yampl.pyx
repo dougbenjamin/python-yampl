@@ -81,7 +81,7 @@ cdef class PySocket:
 		free(msg)
 		return (size, obj)
 
-	def try_recv(self,timeout):
+	def try_recv(self,timeout=0):
 		cdef char *msg = NULL
 		size = self.socket.tryRecv(msg,timeout)
 		obj = ''
@@ -97,7 +97,7 @@ cdef class PySocket:
 		free(msg)
 		return (size, obj)
 
-	def try_recv_raw(self,timeout):
+	def try_recv_raw(self,timeout=0):
 		cdef char *msg = NULL
 		size = self.socket.tryRecv(msg,timeout)
 		obj = ''
