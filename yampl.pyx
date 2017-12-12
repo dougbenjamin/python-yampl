@@ -81,9 +81,9 @@ cdef class PySocket:
 		free(msg)
 		return (size, obj)
 
-	def try_recv(self,timeout=0):
+	def try_recv(self, timeout=0):
 		cdef char *msg = NULL
-		size = self.socket.tryRecv(msg,timeout)
+		size = self.socket.tryRecv(msg, timeout)
 		obj = ''
 		if size != -1:
 			obj = pickle.loads(PyBytes_FromStringAndSize(msg, size));
@@ -97,9 +97,9 @@ cdef class PySocket:
 		free(msg)
 		return (size, obj)
 
-	def try_recv_raw(self,timeout=0):
+	def try_recv_raw(self, timeout=0):
 		cdef char *msg = NULL
-		size = self.socket.tryRecv(msg,timeout)
+		size = self.socket.tryRecv(msg, timeout)
 		obj = ''
 		if size != -1:
 			obj = PyBytes_FromStringAndSize(msg, size)
