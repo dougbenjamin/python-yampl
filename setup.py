@@ -15,7 +15,7 @@ setup(
     Extension("yampl", 
               sources=["yampl.pyx"],
               libraries=["yampl"],
-              include_dirs=[yampl_include,,yampl_include_2],
+              include_dirs=[yampl_include,yampl_include_2],
               extra_link_args=[yampl_libs,"-L$VIRTUAL_ENV/install/lib"],
               language="c++"),
     ],
