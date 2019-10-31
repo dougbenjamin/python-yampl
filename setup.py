@@ -6,6 +6,8 @@ from Cython.Distutils import build_ext
 yampl_include = subprocess.check_output(["pkg-config", "yampl", "--cflags"]).decode("utf-8")[2:-2]
 yampl_libs = subprocess.check_output(["pkg-config", "yampl", "--libs"]).decode("utf-8")[:-2]
 
+yampl_include_2 = yampl_include.replace("/include/yampl","/include")
+
 setup(
   name = "yampl",
   version = "1.0",
@@ -13,8 +15,8 @@ setup(
     Extension("yampl", 
               sources=["yampl.pyx"],
               libraries=["yampl"],
-              include_dirs=[yampl_include],
-              extra_link_args=[yampl_libs],
+              include_dirs=[yampl_include,,yampl_include_2],
+              extra_link_args=[yampl_libs,"-L$VIRTUAL_ENV/install/lib"],
               language="c++"),
     ],
   cmdclass = {"build_ext": build_ext},
